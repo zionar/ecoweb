@@ -1,0 +1,11 @@
+extends ../../layout.jade
+block contenido
+ div(class="col-md-6 remove-float center-block big-top-space")
+  h1 SUBIR ARCHIVO
+  form(action="/app/imagenes/#{imagen.id}?_method=PUT",method="POST" enctype="multipart/form-data")
+   div(class="fomr-group")
+    label(for="title") Titulo 
+    input(type="text",name="title",placeholder="title",id="title",class= "form-control", value="#{imagen.title}")
+    div(class="col-xs-12 col-sm-6")
+     input(type="submit" value="Guardar", class="btn btn-info")
+  

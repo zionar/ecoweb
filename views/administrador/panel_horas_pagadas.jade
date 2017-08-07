@@ -1,0 +1,52 @@
+extends moduls/struct.jade
+
+block libs
+	link(rel="stylesheet" type="text/css" href="../estatico/css/moduls/miniature_card.css")
+
+block content
+	-function miniature_color_priority(priority){
+	-		var color="";
+	-		if(priority == 3)color="background:#008;color:#FFF;";
+	-		else if(priority == 2)color="background:#F00;color:#FFF;";
+	-		else if(priority == 1)color="background:#5d9b9b;color:#FFF;";
+	-		else color="background:#FFF;color:#006;";
+	- 		return color};
+
+	div.section#section_1
+		label.title desempeño  (TAREAS)
+		center
+			label.title_2 #{usuario.username}
+			br
+			label.title_2 Horas trabajadas:#{usuario.horaslaborales_estaticas-usuario.horaslaborales}
+			br
+			label.title_2 Horas totales:#{usuario.horaslaborales_estaticas}
+		
+		div.element_content
+			if(messages.info)
+				.message.success
+				center
+					span(style='font-size: 2em; color:#32cc32;')= messages.info
+
+			if(messages.testin)
+				.message.success
+				center
+					span(style='font-size: 1.3em; color:#32cc32;')= messages.testin
+
+			label.title_2 Gestion de HORAS:
+			div.elements
+				- for (var x = trabajos.length-1; x >= 0; x--)
+					form(action="/panel_gestion_usuario/mirartarjetausuarioperfil"  method="get")
+						input(type="text",name="id",value="#{trabajos[x].tarjeta._id}" hidden )
+						div(style=miniature_color_priority(1)).card_task
+							div.custom_card
+							div.title_card: span.title_2 #{trabajos[x].descripcion} Horas:#{trabajos[x].horastrabajadas} version:#{trabajos[x].tarjeta.version}
+							div.button_content
+								button Abrir						
+				
+	form(action="/panel_gestion_usuario/vertodos"  method="get")
+		div.bottom_menu
+			input(type="text",name="id",value="#{iduser}" hidden )
+			button.add(href="#",data-toggle="modal",title="Nuevo"): span.glyphicon.glyphicon-plus
+			
+
+block libs_js

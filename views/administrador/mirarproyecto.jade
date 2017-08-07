@@ -1,0 +1,27 @@
+extends moduls/struct.jade
+block content
+ div
+  center
+   h1 PROYECTO
+ div(class="col-md-6 remove-float center-block medio-top-space")
+  form(action="/panel_administrador/editarproyecto",method="POST")
+   if(messages.info)
+        .message.success
+        center
+         span(style='font-size: 2em; color:#32cc32;')= messages.info
+   div(class="fomr-group")
+    label(for="text") Nombre proyecto 
+    input(type="text",name="nombre",placeholder="nombre",id="nombre",class="form-control" ,value="#{proyecto.nombre}")
+   div
+    label(for="text") fechaentrega
+    input(type="text",placeholder="fechaentrega",id="fechaentrega",class="form-control" ,value="#{proyecto.fechaentrega}" , readonly="readonly")  
+   div
+    label(for="text") cliente
+    input(type="text",name="cliente",placeholder="cliente",id="cliente",class="form-control",value="#{proyecto.cliente}")
+    input(type="text",name="id",value="#{proyecto._id}" hidden)
+   div
+    .description_content
+     label.title_2 Descripcion:
+     textarea(name="descripcion") #{proyecto.descripcion}
+    .button_content.end
+     button editar

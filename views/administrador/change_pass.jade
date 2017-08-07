@@ -1,0 +1,22 @@
+extends moduls/struct.jade
+
+block libs
+
+block content
+	div.section#section_1
+		label.title Cambiar contraseña.
+		form(action='/panel_administrador/editarcontra/', method='get')
+			input(type="text" name="id" value="#{id}" hidden)
+			if(messages.info)
+				.message.success
+				center
+					span(style='font-size: 2em; color:#32cc32;')= messages.info
+			
+			div.element_content
+				div.input_content
+					input(type="password", name="nueva1" placeholder="Nueva contraseña")
+				div.input_content
+					input(type="password", name="nueva2" placeholder="Confirmar contraseña")
+			div.button_content
+				button Guardar
+block libs_js

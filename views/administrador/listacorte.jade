@@ -1,0 +1,33 @@
+extends moduls/struct.jade
+
+block libs
+
+block content
+	div.section#section_1
+		label.title #{Nombre_tarjeta}desarrollo de la base de datos.
+		if(messages.info)
+			.message.success
+			center
+				span(style='font-size: 2em; color:#32cc32;')= messages.info
+		div.list_content
+			label.title_2 Sin problemas:
+			for usuario in usuarios
+				if(usuario.horaslaborales<=0)
+					div.step_content
+						span.glyphicon.glyphicon-star
+						a(href="#")  #{usuario.username} Horas: #{usuario.horaslaborales}
+
+		div.list_content
+			label.title_2 Con problemas:
+			for usuario in usuarios
+				if(usuario.horaslaborales>0)
+					div.step_content
+						span.glyphicon.glyphicon-star
+						a(href="#")  #{usuario.username} Horas: #{usuario.horaslaborales}
+
+		form(action="/panel_gestion_usuario/cortar"  method="get")
+			.button_content.end
+				button Realizar corte.
+
+block libs_js
+	script(src="../js/color_cards.js")

@@ -1,0 +1,16 @@
+extends ../layout.jade
+block contenido
+ div(class="col-md-8 remove-float center-block text-center big-top-space")
+  h1 Listado de tarjetas
+   div(class="imagenes" id="imagenes")
+   for imagen in tarjetas
+    .white.border.tr.large-padding
+     .row
+      .col-md-10
+     h2=imagen.title
+      .col-md.2
+    a(href="/tarjetas/editar/#{imagen._id}/edit" class="right-space") Editar
+  script(id="image-template" type="text/x-handlebars-template")
+   div(class="img-container")
+     h1 Hola {{color}}
+  script(src="/estatico/js/client.js")    

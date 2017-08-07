@@ -1,0 +1,68 @@
+extends moduls/struct.jade
+
+block libs
+	link(rel="stylesheet" type="text/css" href="../estatico/css/moduls/miniature_card.css")
+
+block content
+	-function miniature_color_priority(priority){
+	-		var color="";
+	-		if(priority == 3)color="background:#008;color:#FFF;";
+	-		else if(priority == 2)color="background:#F00;color:#FFF;";
+	-		else if(priority == 1)color="background:#F70;color:#FFF;";
+	-		else color="background:#FFF;color:#006;";
+	- 		return color};
+
+	div.section#section_1
+		label.title Panel de tarjetas
+		div.element_content
+			if(messages.info)
+				.message.success
+				center
+					span(style='font-size: 2em; color:#32cc32;')= messages.info
+
+			if(messages.testin)
+				.message.success
+				center
+					span(style='font-size: 1.3em; color:#32cc32;')= messages.testin
+
+			label.title_2 Horas trabadas:#{user.horaslaborales_estaticas-user.horaslaborales}
+			label.title_2 Horas totales:#{user.horaslaborales_estaticas}
+			label.title_2 Mis Tarjetas:
+			
+			div.elements
+
+				// div(style=miniature_color_priority(3)).card_task
+				// 	div.custom_card
+				// 		a.element_option(href="",title="Borrar"): span.glyphicon.glyphicon-remove
+				// 	div.title_card: span.title_2 Eventos
+				// 	div.button_content
+				// 		button Abrir
+
+				if(blanca!=null)
+					form(action="/panel_usuario/mirar"  method="POST")
+						div(style=miniature_color_priority(0)).card_task
+							div.custom_card
+							div.title_card: span.title_2 #{blanca.proyecto.nombre}
+							input(type="text", name="id",value="#{blanca._id}",hidden)
+							div.button_content
+								button Abrir
+				if(naranja!=null)
+					form(action="/panel_usuario/mirar"  method="POST")
+						div(style=miniature_color_priority(1)).card_task
+							div.custom_card
+							input(type="text", name="id",value="#{naranja._id}",hidden)
+							div.title_card: span.title_2 #{naranja.proyecto.nombre}
+							div.button_content
+								button Abrir
+				if(roja!=null)
+					form(action="/panel_usuario/mirar"  method="POST")
+						div(style=miniature_color_priority(2)).card_task
+							div.custom_card
+							div.title_card: span.title_2 #{roja.proyecto.nombre}
+							input(type="text", name="id",value="#{roja._id}",hidden)
+							div.button_content
+								button Abrir
+								
+
+
+block libs_js

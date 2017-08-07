@@ -1,0 +1,32 @@
+extends moduls/struct.jade
+
+block libs
+	link(rel="stylesheet" type="text/css" href="../estatico/css/vews/profile.css")
+block content
+	div.section#section_1
+		label.title Perfil
+		if(messages.info)
+			.message.success
+			center
+				span(style='font-size: 2em; color:#32cc32;')= messages.info
+		div.image
+			img(src="../estatico/img/ecoweb.jpg")
+		div.dual_content
+			div.step_content
+				label.title_3 Nombre
+				span #{user.username}
+			div.step_content
+				label.title_3 Email
+				span #{user.email}
+			div.step_content
+				label.title_3 Telefono
+				span #{user.telefono}
+			div.step_content
+				label.title_3 Rol
+				span #{user.nivel}
+
+	div.bottom_menu
+		a(href="/panel_usuario/editar") Editar perfil.
+		a(href="/panel_usuario/cambiarcontra") Cambiar contraseña.
+
+block libs_js

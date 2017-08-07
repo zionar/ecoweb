@@ -1,0 +1,129 @@
+.custom_card {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end; }
+  .custom_card .element_option {
+    margin: 10px 5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
+  .custom_card .element_option span {
+    margin: auto;
+    font-size: 20px; }
+
+.card_project {
+  position: relative;
+  margin: 10px;
+  padding: 0px 20px;
+  width: 200px;
+  border-radius: 5px;
+  border: 1px solid #888;
+  -webkit-box-shadow: 1px 1px 2px #000;
+  box-shadow: 1px 1px 2px #000;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s; }
+  .card_project .title_card {
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+    text-align: center;
+    text-transform: uppercase;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-size: 15px; }
+  .card_project span {
+    margin: auto; }
+  .card_project img {
+    height: 150px;
+    width: 100%; }
+  .card_project button {
+    padding: 10px; }
+  .card_project .custom_card {
+    top: 0;
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
+    -webkit-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s; }
+
+.card_project:hover .custom_card {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s; }
+
+.card_task {
+  position: relative;
+  margin: 10px;
+  padding: 0px 20px;
+  width: 200px;
+  border-radius: 5px;
+  border: 1px solid #888;
+  -webkit-box-shadow: 1px 1px 2px #000;
+  box-shadow: 1px 1px 2px #000;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s; }
+  .card_task .title_card {
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+    text-align: center;
+    text-transform: uppercase;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-size: 15px; }
+  .card_task span {
+    margin: auto; }
+  .card_task button {
+    padding: 10px; }
+  .card_task .custom_card {
+    top: 0;
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
+    -webkit-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s; }
+
+.card_task:hover .custom_card {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s; }

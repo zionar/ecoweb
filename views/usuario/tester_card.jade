@@ -1,0 +1,117 @@
+extends moduls/struct.jade
+
+block libs
+	link(rel="stylesheet" type="text/css" href="../css/vews/tester_card.css")
+
+block modal_content
+	div.description_content
+		labe.title_3 Sugerencia de calidad:
+		textarea(placeholder="Has click para escribir")
+block modal_button
+
+block content
+	script var priority=2;
+
+	div.section#section_1
+		if(messages.info)
+			.message.success
+			center
+				span(style='font-size: 2em; color:#32cc32;')= messages.info
+		label.title #{tarjeta.tipotarea.nombre} (TESTEAR)
+		div.description_content
+			label.title_2 Descripcion:
+			p #{tarjeta.descripcion}
+
+		div.list_content
+			label.title_2 Tiempo esperado:
+			div.step_content
+				span.glyphicon.glyphicon-star
+				span #{tarjeta.horasduracion_estatico} Horas
+
+			div.step_content
+				span.glyphicon.glyphicon-star
+				span Plazo maximo de #{tarjeta.plazodias_estatico} dias
+
+		div.dual_content
+			label.title_2 Tiempo esperado:
+			div.step_content
+				label.title_3 DESIGNADOR
+				span #{tarjeta.creador.username}.
+			div.step_content
+				label.title_3 Desarrolador
+				span #{tarjeta.responsable.username}.
+				
+		form(action='/tarjetas/marcar_trabajotestin', method='post')
+			div.section#section_2
+				div.line
+				label.title Vr #{tarjeta.version}.
+				div.dual_content
+					div.step_content
+						label.title_3 ESTADO
+						span #{tarjeta.estado}
+					div.step_content
+				div.description_content
+					label.title_2 Descripcion:
+					textarea(placeholder="Has click para escribir",name="descripcion")
+				div.dual_content
+					div.step_content
+						span.title_3 HORAS:
+						span: input(type="number",placeholder="...",name="horas")
+						input(type="text",placeholder="...",value="#{tarjeta.responsable._id}",name="responsable",hidden)
+						input(type="text",placeholder="...",value="#{tarjeta._id}",name="idtarjeta",hidden)
+				div.button_content
+					button Guardar
+	form(action='/tarjetas/testinerrores', method='post')
+		div.section#section_3
+			div.line
+			label.label_out.title_3 Selecciona si (NO CUMPLE) con el criterio de evaluacion  
+			div.dual_content
+				label.title_2 Criterios de evaluacion:      
+				for criterio in criterios
+						div.step_content
+							div.step_list
+								span.glyphicon.glyphicon-star
+								span #{criterio.descripcion}
+							input(type="checkbox", name="nocumple",value="#{criterio.descripcion}")
+				input(type="text", name="id",value="#{tarjeta._id}",hidden)
+			div.description_content
+				label.title_2 Observaciones generales:
+				textarea(placeholder="Has click para escribir" ,name="descripcion")
+			div.button_content
+				button Guardar
+
+	form(action='/tarjetas/sugerircriterio', method='post')
+		div.section#section_4
+					div.line
+					div.description_content
+						label.title_2 Sugerir criterio de evaluacion:
+						textarea(placeholder="Has click para escribir",name="descripcion")
+						input(type="text",placeholder="...",value="#{tarjeta.tipotarea._id}",name="tipotarea",hidden)
+					div.button_content
+						button Guardar
+		
+			div.line
+	form(action='/tarjetas/terminartareaaceptar', method='post')
+		div.section#section_4
+			input(type="text",placeholder="...",value="#{tarjeta._id}",name="idtarjeta",hidden)
+			div.button_content
+				button Aceptar
+
+	form(action='/tarjetas/terminartarearechazar', method='post')
+		div.section#section_4
+			input(type="text",placeholder="...",value="#{tarjeta._id}",name="idtarjeta",hidden)
+			div.button_content
+				button Rechazar
+
+block libs_js
+	script(src="../estatico/js/inputs_files.js")
+	script(src="../estatico/js/color_cards.js")
+	script(type='text/javascript').
+		if('#{tarjeta.color}'=="blanca")
+			priority =0;
+		if('#{tarjeta.color}'=="naranja")
+			priority =1;
+		if('#{tarjeta.color}'=="roja")
+			priority =2;
+		if('#{tarjeta.color}'=="azul")
+			priority =3;

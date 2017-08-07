@@ -1,0 +1,41 @@
+extends moduls/struct.jade
+
+block libs
+	link(rel="stylesheet" type="text/css" href="../estatico/css/vews/profile.css")
+block content
+	div.section#section_1
+		label.title Proyecto
+		if(messages.info)
+			.message.success
+			center
+				span(style='font-size: 2em; color:#32cc32;')= messages.info
+		div.image
+			img(src="../estatico/img/ecoweb.jpg")
+		div.dual_content
+			div.step_content
+				label.title_3 Nombre
+				span #{proyecto.nombre}
+			div.step_content
+				label.title_3 Cliente
+				span #{proyecto.cliente}
+			div.step_content
+				label.title_3 Descripcion
+				span #{proyecto.descripcion}
+			div.step_content
+				label.title_3 Fecha
+				span #{proyecto.fechaentrega}
+			div.step_content
+				label.title_3 Estado
+				span #{proyecto.estado}
+
+		form(action="/panel_administrador/mirarproyecto"  method="get")
+			input(type="text",name="id",value="#{proyecto._id}" hidden )
+			.button_content.end
+				button editar
+
+		form(action="/panel_administrador/vertarjetas"  method="get")
+			input(type="text",name="id",value="#{proyecto._id}" hidden )
+			.button_content.end
+				button Ver tarjetas
+
+block libs_js

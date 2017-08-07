@@ -1,0 +1,39 @@
+extends moduls/struct.jade
+block content
+ doctype html
+ html(lan='es')
+  head
+   title ECOCARDS
+   meta(charset='utf-8')
+   meta(name='viewport', content='width=device-width, initial-scale=1.0')
+   link(rel='stylesheet', type='text/css', href='../estatico/bootstrap/css/bootstrap.min.css')
+   link(rel='stylesheet', type='text/css', href='../estatico/css/moduls/controllers.css')
+   link(rel='stylesheet', type='text/css', href='../estatico/css/moduls/menu.css')
+  body
+   form(action='creacioncriterio', method='post',id="tarjeta")
+    .window
+     .content
+      .header
+      #section_1.section
+       label.title Crear criterio de evaluacion
+       if(messages.info)
+        .message.success
+        center
+         span(style='font-size: 2em; color:#32cc32;')= messages.info
+       .list_content
+       .element_content
+        .input_content
+         label() tipotarea 
+         select(name="tipotarea")
+          for tipotare in tipotarea
+           option(value="#{tipotare._id}") #{tipotare.nombre}    
+        .element_content
+ 
+        .description_content
+         label.title_2 Descripcion de la tarjeta:
+         textarea(placeholder='Has click para escribir',name="descripcion")
+      
+      .button_content.end
+       button Crear
+    script(src='../estatico/bootstrap/js/jquery.js')
+    script(src='../estatico/bootstrap/js/bootstrap.min.js')

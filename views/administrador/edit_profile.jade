@@ -1,0 +1,43 @@
+extends moduls/struct.jade
+
+block libs
+block content
+	div.section#section_1
+		label.title editar perfil
+		form(action='/panel_administrador/cambiardatos', method='get')
+			input(type="text" name="id" value="#{user._id}" hidden)
+			div.element_content
+				if(messages.info)
+				.message.success
+					center
+					span(style='font-size: 2em; color:#32cc32;')= messages.info
+				div.input_content
+					input(type="text", placeholder="Nombre completo" name="username" value="#{user.username}")
+				div.input_content
+					input(type="email", placeholder="E-mail" name="email" value="#{user.email}")
+				div.input_content
+					input(type="number", placeholder="Telefono" name="telefono" value="#{user.telefono}")
+				div.input_content 
+					input(type="text", placeholder="horas" name="horas" value="#{user.horaslaborales_estaticas}")
+				if(user.nivel=="administrador")
+					div.input_content 
+						select(name="nivel")
+							option(value="administrador") administrador 
+							.element_content				
+							option(value="usuario") usuario 
+							.element_content
+				if(user.nivel=="usuario")
+					div.input_content 
+						select(name="nivel")
+							option(value="usuario") usuario 
+							.element_content				
+							option(value="administrador") administrador 
+							.element_content						
+		
+				// input(type="text", placeholder="nivel" name="nivel" value="#{user.nivel}")
+				// div.input_content				
+				
+			div.button_content
+				button Guardar
+
+block libs_js

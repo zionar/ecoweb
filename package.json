@@ -1,0 +1,30 @@
+{
+  "name": "proyecto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "0.1.0": "^1.0.0",
+    "body-parser": "^1.17.2",
+    "connect-redis": "^3.3.0",
+    "cookie-session": "^2.0.0-beta.2",
+    "express": "^4.15.3",
+    "express-flash": "git://github.com/RGBboy/express-flash.git",
+    "express-formidable": "^0.1.0",
+    "express-session": "^1.15.3",
+    "jade": "^1.11.0",
+    "method-override": "^2.3.9",
+    "mongoose": "^4.10.6",
+    "mongoose-unique-validator": "^1.0.5",
+    "redis": "^2.7.1",
+    "socket.io": "^2.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}

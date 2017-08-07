@@ -1,0 +1,110 @@
+.custom_card{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+
+	.element_option{
+		margin: 10px 5px;
+		display: flex;
+	}
+	.element_option span{
+		margin: auto;
+		font-size: 20px;
+	}
+}
+
+
+.card_project{
+	position: relative;
+	margin: 10px;
+	padding: 0px 20px;
+	width: 200px;
+	border-radius: 5px;
+	border: 1px solid #888;
+	box-shadow: 1px 1px 2px #000;
+	cursor: pointer;
+	overflow: hidden;
+	transition: all 1s;
+	
+	.title_card{
+		width: 100%;
+		height: 40px;
+		overflow: hidden;
+		text-align: center;
+		text-transform: uppercase;
+		display: flex;
+		justify-content: center;
+		font-size: 15px;
+	}
+	
+	span{
+		margin: auto;
+	}
+	img{
+		height: 150px;
+		width: 100%;
+	}
+	button{
+		padding: 10px;
+	}
+
+	.custom_card{
+		top:0;
+		transform: translateY(-100%);
+		transition: all 1s;
+	}
+}
+
+.card_project:hover{
+	.custom_card{
+		transform: translateY(0);
+		transition: all 1s;
+	}
+}
+
+.card_task{
+	position: relative;
+	margin: 10px;
+	padding: 0px 20px;
+	width: 200px;
+	border-radius: 5px;
+	border: 1px solid #888;
+	box-shadow: 1px 1px 2px #000;
+	cursor: pointer;
+	overflow: hidden;
+	transition: all 1s;
+	
+	.title_card{
+		width: 100%;
+		height: 140px;
+		overflow: hidden;
+		text-align: center;
+		text-transform: uppercase;
+		display: flex;
+		justify-content: center;
+		font-size: 15px;
+	}
+	
+	span{
+		margin: auto;
+	}
+	button{
+		padding: 10px;
+	}
+
+	.custom_card{
+		top:0;
+		transform: translateY(-100%);
+		transition: all 1s;
+	}
+}
+
+.card_task:hover{
+	.custom_card{
+		transform: translateY(0);
+		transition: all 1s;
+	}
+}

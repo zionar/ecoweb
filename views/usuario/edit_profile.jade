@@ -1,0 +1,24 @@
+extends moduls/struct.jade
+
+block libs
+
+block content
+	div.section#section_1
+		label.title editar perfil
+		form(action='/panel_usuario/cambiardatos', method='post')
+			div.element_content
+				if(messages.info)
+				.message.success
+					center
+					span(style='font-size: 2em; color:#32cc32;')= messages.info
+				div.input_content
+					input(type="text", placeholder="Nombre completo" name="username" value="#{user.username}")
+				div.input_content
+					input(type="email", placeholder="E-mail" name="email" value="#{user.email}")
+				div.input_content
+					input(type="number", placeholder="Telefono" name="telefono" value="#{user.telefono}")
+				div.input_content
+			div.button_content
+				button Guardar
+
+block libs_js

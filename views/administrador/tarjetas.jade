@@ -1,0 +1,97 @@
+extends moduls/struct.jade
+
+block libs
+	link(rel="stylesheet" type="text/css" href="../estatico/css/moduls/miniature_card.css")
+
+block content
+	-function miniature_color_priority(priority){
+	-		var color="";
+	-		if(priority == 3)color="background:#008;color:#FFF;";
+	-		else if(priority == 2)color="background:#F00;color:#FFF;";
+	-		else if(priority == 1)color="background:#F70;color:#FFF;";
+	-		else color="background:#FFF;color:#006;";
+	- 		return color};
+
+	div.section#section_1
+		label.title (Tarjetas)
+		div.element_content
+			if(messages.info)
+				.message.success
+				center
+					span(style='font-size: 2em; color:#32cc32;')= messages.info
+
+			if(messages.testin)
+				.message.success
+				center
+					span(style='font-size: 1.3em; color:#32cc32;')= messages.testin
+
+			label.title_2 Gestion de tarjetas:
+			label.title_2 Cantidad Tarjetas sin terminar: #{naranjas.length + rojas.length + blancas.length} 
+			label.title_2 Cantidad Tarjetas terminadas:#{naranjast.length + rojast.length + blancast.length}
+			label.title_2 Porcentaje de culminacion:#{((naranjast.length + rojast.length + blancast.length)*100)/(naranjast.length + rojast.length + blancast.length+naranjas.length + rojas.length + blancas.length))% 
+			label.title_2 Sin terminar:
+			div.elements
+				for roja in rojas
+					form(action="/panel_administrador/mirar"  method="get")
+						input(type="text",name="id",value="#{roja._id}" hidden )
+						div(style=miniature_color_priority(2)).card_task
+							div.custom_card
+							div.title_card: span.title_2 #{roja.responsable.username} 
+								span Version= #{roja.version}
+							div.button_content
+								button Abrir
+
+				for naranja in naranjas
+					form(action="/panel_administrador/mirar"  method="get")
+						input(type="text",name="id",value="#{naranja._id}" hidden )
+						div(style=miniature_color_priority(1)).card_task
+							div.custom_card
+							div.title_card: span.title_2 #{naranja.responsable.username} 
+								span Version= #{naranja.version}
+							div.button_content
+								button Abrir			
+
+				for blanca in blancas
+					form(action="/panel_administrador/mirar"  method="get")
+						input(type="text",name="id",value="#{blanca._id}" hidden )
+						div(style=miniature_color_priority(0)).card_task
+							div.custom_card
+							div.title_card: span.title_2 #{blanca.responsable.username} 
+								span Version= #{blanca.version}
+							div.button_content
+								button Abrir			
+
+			label.title_2 Terminadas:
+
+			div.elements
+				for roja in rojast
+					form(action="/panel_administrador/mirar"  method="get")
+						input(type="text",name="id",value="#{roja._id}" hidden )
+						div(style=miniature_color_priority(2)).card_task
+							div.custom_card
+							div.title_card: span.title_2 #{roja.responsable.username} 
+								span Version= #{roja.version}
+							div.button_content
+								button Abrir
+
+				for naranja in naranjast
+					form(action="/panel_administrador/mirar"  method="get")
+						input(type="text",name="id",value="#{naranja._id}" hidden )
+						div(style=miniature_color_priority(1)).card_task
+							div.custom_card
+							div.title_card: span.title_2 #{naranja.responsable.username}  
+								span Version= #{naranja.version}
+							div.button_content
+								button Abrir			
+
+				for blanca in blancast
+					form(action="/panel_administrador/mirar"  method="get")
+						input(type="text",name="id",value="#{blanca._id}" hidden )
+						div(style=miniature_color_priority(0)).card_task
+							div.custom_card
+							div.title_card: span.title_2 #{blanca.responsable.username} 
+								span Version= #{blanca.version}
+							div.button_content
+								button Abrir
+
+block libs_js

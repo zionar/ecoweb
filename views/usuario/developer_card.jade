@@ -1,0 +1,109 @@
+extends moduls/struct.jade
+
+block libs
+
+block content	
+
+	div.section#section_1
+		if(messages.info)
+			.message.success
+			center
+				span(style='font-size: 2em; color:#32cc32;')= messages.info
+		label.title #{tarjetas.tipotarea.nombre}
+		div.description_content
+			label.title_2 Descripcion:
+			p #{tarjetas.descripcion}.
+
+
+		div.list_content
+			label.title_2 Tiempo esperado:
+			div.step_content
+				span.glyphicon.glyphicon-star
+				span #{tarjetas.horasduracion_estatico} Horas
+
+			div.step_content
+				span.glyphicon.glyphicon-star
+				span Plazo maximo de #{tarjetas.plazodias_estatico} dias
+
+		div.dual_content
+			label.title_2 Tiempo esperado:
+			div.step_content
+				label.title_3 DESIGNADOR
+				span #{tarjetas.creador.username}
+
+			// div.step_content
+			// 	label.title_3 tester(s)
+			// 	div.multiple
+			// 		span #{Tester_1}Angelito 1
+
+	form(action='/tarjetas/marcar_trabajo', method='post')
+		div.section#section_2
+			div.line
+			label.title Vr #{tarjetas.version}.
+			div.dual_content
+				div.step_content
+					label.title_3 ESTADO
+					span #{tarjetas.estado}
+				div.step_content
+					label.title_3 HORAS REALIZADAS
+					span #{tarjetas.horasduracion} Horas
+				div.step_content
+					label.title_3 DIAS RESTANTES
+					span #{tarjetas.plazodias} Dias
+			div.description_content
+				label.title_2 Descripcion:
+				textarea(placeholder="Has click para escribir",name="descripcion")
+			div.dual_content
+				div.step_content
+					span.title_3 HORAS:
+					span: input(type="number",placeholder="...",name="horas")
+					input(type="text",placeholder="...",value="#{tarjetas.responsable._id}",name="responsable",hidden)
+					input(type="text",placeholder="...",value="#{tarjetas._id}",name="idtarjeta",hidden)
+			div.button_content
+				button Guardar
+
+	form(action='/tarjetas/corregir', method='post')
+		div.section#section_3
+			div.line
+			div.dual_content
+				if(problemas!="")
+					label.title_2 Observaciones y seguimiento:
+					div.step_content
+					for proble in problemas
+							div.step_list
+								span.glyphicon.glyphicon-star
+								span #{proble.descripcion} 
+								input(type="checkbox",name="corregido",value="#{proble.descripcion}")
+					input(type="text",name="id",value="#{tarjetas._id}" hidden)
+			
+			if(problemas!="")
+				div.button_content
+					button Corregir 
+	
+	
+	
+	form(action='/tarjetas/terminartarea', method='post')
+		div.section#section_4
+			input(type="text",placeholder="...",value="#{tarjetas._id}",name="idtarjeta",hidden)
+			if(problemas=="")
+				div.button_content
+					button Entregar
+
+block libs_js
+	script(src="../estatico/js/inputs_files.js")
+	script(src="../estatico/js/color_cards.js")
+	script(type='text/javascript').
+		if('#{tarjetas.color}'=="blanca")
+		 priority =0;
+		if('#{tarjetas.color}'=="naranja")
+		 priority =1;
+		if('#{tarjetas.color}'=="roja")
+		 priority =2;
+		if('#{tarjetas.color}'=="azul")
+		 priority =3;
+
+
+
+
+
+

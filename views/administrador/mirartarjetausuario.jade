@@ -1,0 +1,125 @@
+extends moduls/struct.jade
+
+block libs
+
+block content	
+	div.section#section_1
+		label.title #{tarjetas.tipotarea.nombre}
+		div.description_content
+			label.title_2 Descripcion(usu):
+			p #{tarjetas.descripcion}.
+
+
+		div.list_content
+			label.title_2 Tiempo esperado:
+			div.step_content
+				span.glyphicon.glyphicon-star
+				span #{tarjetas.horasduracion_estatico} Horas
+
+			div.step_content
+				span.glyphicon.glyphicon-star
+				span Plazo maximo de #{tarjetas.plazodias_estatico} dias
+
+		div.dual_content
+			label.title_2 Tiempo esperado:
+			div.step_content
+				label.title_3 DESIGNADOR
+				span #{tarjetas.creador.username}
+
+			div.step_content
+				label.title_3 RESPONSABLE
+				span #{tarjetas.responsable.username}
+		div.dual_content
+			div.step_content
+				label.title_3 TESTERS
+					for teste in tester
+						div.step_content
+							span #{teste.usuario.username}
+
+			// div.step_content
+			// 	label.title_3 tester(s)
+			// 	div.multiple
+			// 		span #{Tester_1}Angelito 1
+
+	form(action='/tarjetas/marcar_trabajo', method='post')
+		div.section#section_2
+			div.line
+			label.title Vr #{tarjetas.version}.
+			div.dual_content
+				div.step_content
+					label.title_3 ESTADO
+					span #{tarjetas.estado}
+				div.step_content
+					label.title_3 HORAS REALIZADAS
+					span #{tarjetas.horasduracion} Horas
+				div.step_content
+					label.title_3 DIAS RESTANTES
+					span #{tarjetas.plazodias} Dias
+
+		
+
+
+	form(action='/tarjetas/corregir', method='post')
+		div.section#section_3
+			div.line
+			div.dual_content
+				if(problemas!="")
+					label.title_2 Observaciones y seguimiento:
+					div.step_content
+					for proble in problemas
+							div.step_list
+								span.glyphicon.glyphicon-star
+								span #{proble.descripcion} 
+					input(type="text",name="id",value="#{tarjetas._id}" hidden)
+			
+ 
+	
+	form(action='/panel_administrador/tarjetasusuario', method='get')
+		input(type="text",name="id",value="#{tarjetas.responsable._id}" hidden)
+		div.button_content
+			button Volver
+
+
+	div.section#section_1
+		label.title
+			center
+				div.section#section_1 EDITAR PRIORIDAD
+
+	form(action='/panel_administrador/editarprioridadusuario', method='get')
+		input(type="text",name="id",value="#{tarjetas._id}" hidden)
+		input(type="text",name="color",value="roja" hidden)
+		input(type="text",name="idp",value="#{tarjetas.responsable._id}" hidden)
+		div.button_content
+			button ROJA
+
+	form(action='/panel_administrador/editarprioridadusuario', method='get')
+		input(type="text",name="id",value="#{tarjetas._id}" hidden)
+		input(type="text",name="idp",value="#{tarjetas.responsable._id}" hidden)
+		input(type="text",name="color",value="naranja" hidden)
+		div.button_content
+			button NARANJA
+
+	form(action='/panel_administrador/editarprioridadusuario', method='get')
+		input(type="text",name="id",value="#{tarjetas._id}" hidden)
+		input(type="text",name="color",value="blanca" hidden)
+		input(type="text",name="idp",value="#{tarjetas.responsable._id}" hidden)
+		div.button_content
+			button BLANCA
+block libs_js
+	script(src="../estatico/js/inputs_files.js")
+	script(src="../estatico/js/color_cards.js")
+	script(type='text/javascript').
+		if('#{tarjetas.color}'=="blanca")
+		 priority =0;
+		if('#{tarjetas.color}'=="naranja")
+		 priority =1;
+		if('#{tarjetas.color}'=="roja")
+		 priority =2;
+		if('#{tarjetas.color}'=="azul")
+		 priority =3;
+
+
+
+
+
+

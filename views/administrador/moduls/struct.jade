@@ -1,0 +1,20 @@
+doctype html
+html(lan="es")
+	head
+		title ECOCARDS
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		link(rel="stylesheet" type="text/css" href="../estatico/bootstrap/css/bootstrap.min.css")
+		link(rel="stylesheet" type="text/css" href="../estatico/css/moduls/controllers.css")
+		link(rel="stylesheet" type="text/css" href="../estatico/css/moduls/menu.css")
+		block libs
+
+	body
+		include modal.jade
+		div.window
+			div.content
+				include menu.jade
+				block content
+		script(src="../estatico/bootstrap/js/jquery.js")
+		script(src="../estatico/bootstrap/js/bootstrap.min.js")
+		block libs_js

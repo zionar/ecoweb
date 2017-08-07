@@ -1,0 +1,11 @@
+.title {
+  text-transform: uppercase;
+  text-align: center;
+  margin: 10px auto;
+  font-weight: bolder; }
+
+.title_2 {
+  text-transform: uppercase;
+  margin: 10px auto;
+  margin-left: 10px;
+  font-weight: bolder; }

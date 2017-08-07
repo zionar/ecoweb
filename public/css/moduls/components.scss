@@ -1,0 +1,397 @@
+@import "colors.scss";
+
+.section{
+	display: flex;
+	flex-direction: column;
+}
+
+.bottom_menu{
+	width: 90%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	margin: auto auto 0 auto;
+
+	.add{
+		margin: 10px;
+		padding: 10px;
+	}
+
+	a{
+		margin: auto 10px;
+	}
+}
+
+.title{
+	text-transform: uppercase;
+	text-align: center;
+	margin: 10px auto;
+	font-weight: bolder;
+	/*text-shadow:1px 1px 1px $shadow_text;*/
+}
+
+.title_2{
+	text-transform: uppercase;
+	margin: 5px auto;
+	margin-left: 10px;
+	font-weight: bolder;
+	/*text-shadow:1px 1px 1px $shadow_text;*/
+}
+
+.title_3{
+	text-transform: uppercase;
+	margin: 5px 0;
+	font-weight: bolder;
+	/*text-shadow:1px 1px 1px $shadow_text;*/
+}
+
+.glyphicon{
+	margin: auto 5px auto 0;
+	font-size: 10px;
+}
+
+.input_file{
+	width: 80%;
+	margin: 10px auto;
+}
+
+.btn_file{
+	color: #FFF;
+	background: $color_button;
+}
+
+.btn_file:hover{
+	color: inherit;
+	background: $color_button_hover;
+}
+
+/*///////////////////////////////////////////*/
+.description_content,.list_content,.dual_content,.element_content{
+	margin: 10px auto;
+	padding: 0 10px;
+	width: 100%;
+	display:flex;
+	flex-direction: column;
+}
+
+.description_content{
+	p{
+		text-align: justify;
+		margin: 5px 20px;
+		cursor: context-menu;
+	}
+	textarea{
+		margin: 5px auto;
+		width: 90%;
+		max-width: 90%;
+		height: 100px;
+		color: #333;
+		padding: 10px 20px;
+		border-radius: 5px;
+		border:1px solid #CCC;
+		font-weight: normal;
+		box-shadow: 0 0 2px #CCC inset;
+		outline: none;
+	}
+	textarea:focus{
+		box-shadow: 0 0 5px #55F;
+	}
+
+	a,a:hover,a:active,a:focus{
+		color: $color_link;
+		/*text-shadow:1px 1px 1px $shadow_text;*/
+		cursor:pointer;
+		text-decoration: none;
+		outline: none;
+		text-align: center;
+		margin: auto 0 auto 5px;
+	}
+
+	a:hover{
+		color: $color_link_hover;
+	}
+
+	a[href=""]{
+		text-shadow:none;
+		color: inherit;
+		cursor: context-menu;
+	}
+
+	a[href=""]:hover{
+		color: $color_link;
+	}
+
+	.radio_content{
+		display: flex;
+		justify-content: center;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin: 10px auto;
+
+		label{
+			margin: auto 10px;
+			input{
+				margin: auto 5px;
+			}
+			span{
+				margin: auto 0;
+			}
+		}
+	}
+}
+
+/*////////////////////////////////////////////*/
+
+.list_content>.step_content{
+	text-align: justify;
+	display: flex;
+	flex-direction: row;
+	margin: 5px 20px;
+
+	a,a:hover,a:active,a:focus{
+		color: $color_link;
+		/*text-shadow:1px 1px 1px $shadow_text;*/
+		cursor:pointer;
+		text-decoration: none;
+		outline: none;
+		text-align: justify;
+		margin: auto 0 auto 5px;
+	}
+
+	a:hover{
+		color: $color_link_hover;
+	}
+
+	a[href=""]{
+		pointer-events: none;
+		text-shadow:none;
+		color: inherit;
+		cursor: context-menu;
+	}
+	
+	a[href=""]:hover{
+		color: inherit;
+	}
+
+	span{
+		text-align: justify;
+		margin: auto 0 auto 5px;
+	}
+}
+/*///////////////////////////////////////////*/
+
+.dual_content>.step_content{
+	display: flex;
+	flex-direction: row;
+	margin: 5px 20px;
+
+	label{
+		text-transform: uppercase;
+		text-align: justify;
+		margin: 0;
+		width: 100%;
+		margin-right: 5px;
+	}
+	span{
+		text-transform: capitalize;
+		text-align: center;
+		margin: auto 0;
+		width: 100%;
+		margin-left: 5px;
+	}
+
+	input[type="number"],input[type="text"],input[type="date"]{
+		text-transform: capitalize;
+		text-align: center;
+		margin: auto;
+		width: 100px;
+		color: #333;
+		padding: 3px 10px;
+		border-radius: 5px;
+		border:1px solid #CCC;
+		font-weight: normal;
+		box-shadow: 0 0 2px #CCC inset;
+		outline: none;
+	}
+	input[type="number"]:focus,input[type="text"]:focus,input[type="date"]:focus{
+		box-shadow: 0 0 5px #55F;
+	}
+
+	.multiple{
+		display: flex;
+		flex-direction: column;
+		margin: auto 0;
+		width: 100%;
+	}
+
+	.multiple>span{
+		margin: auto 0;
+		margin-bottom: 10px;
+	}
+
+	.step_list{
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		margin: 0 10px 0 0;
+
+		span:first-child{
+			text-align: justify;
+			width:auto;
+			margin: auto 5px auto 0;
+		}
+
+		span:last-child{
+			text-align: justify;
+			width:auto;
+			margin: auto 0 auto 5px;
+		}
+	}
+
+	input[type="checkbox"]{
+		margin:auto;
+		width: 20px;
+		height: 20px;
+	}
+
+	input[type="radio"]{
+		margin:auto 0 auto 10px;
+		width: 25px;
+		height: 25px;
+	}
+
+	.attr_control{
+		width: auto;
+		text-align:right;
+		margin:auto 0 auto auto;
+	}
+}
+/*///////////////////////////////////////////*/
+
+.line{
+	margin: 10px auto;
+	height: 3px;
+	width: 90%;
+	background: #FFF;
+}
+
+.add{
+	background:$color_button;
+	margin: 10px auto;
+	padding: 20px;
+	border-radius: 50%;
+	border:2px solid #FFF;
+	box-shadow: 1px 1px 2px #000;
+	display: flex;
+	justify-content: center;
+
+	span{
+		color: #FFF;
+		margin: auto;
+		font-size: 20px;
+	}
+}
+
+.add:hover{
+	background:$color_button_hover;
+}
+
+/*///////////////////////////////////////////*/
+
+.button_content{
+	display: flex;
+	flex-direction: column;
+	margin: 10px auto;
+	width: 90%;
+
+	button{
+		margin: 5px auto;
+		width: 100%;
+		padding: 15px;
+		color: #FFF;
+		background: $color_button;
+		border:none;
+		font-weight: bolder;
+		border-radius: 10px;
+		box-shadow: 2px 2px 2px #333;
+	}
+	button:hover,button:active,button:focus{
+		background: $color_button_hover;
+	}
+}
+
+/*///////////////////////////////////////////*/
+
+.element_content{
+	.elements{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		width: 100%;
+		margin: 10px auto;
+		justify-content: center;
+	}
+
+	.input_content{
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		margin: 10px auto;
+		justify-content: center;		
+
+		input,select{
+			display: flex;
+			width: 100%;
+			margin: 0 10px;
+			padding: 5px 10px;
+			border-radius: 5px;
+			border:1px solid #CCC;
+			font-weight: normal;
+			box-shadow: 0 0 2px #CCC inset;
+			outline: none;
+		}
+		input:focus,select:focus{
+			box-shadow: 0 0 5px #55F;
+		}
+	}
+	table{
+		td,th{
+			text-align: center;
+			margin: 0 10px;
+			text-transform: capitalize;
+		}
+		.icon{
+			font-size: inherit;
+		}
+		td:nth-child(n+4){
+			display: none;
+		}
+	}
+	.links{
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+
+		a{
+			margin: 5px auto;
+		}
+	}
+	
+	.text_content{
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		margin: 10px auto;
+		label,span{
+			display: flex;
+			width: 100%;
+			margin: 0 10px;
+			font-weight: normal;
+		}
+	}
+}
+
+/*/////////////////////////////////////////////////////*/
+.end{
+	margin: auto auto 0 auto;
+}

@@ -1,0 +1,17 @@
+extends moduls/struct.jade
+block content
+ center 
+  h1 CREACION TIPO TAREA
+  if(messages.info)
+   .message.success
+   center
+    span(style='font-size: 2em; color:#32cc32;')= messages.info
+ div(class="col-md-6 remove-float center-block medio-top-space")
+  form(action="creaciontipotarea",method="POST")
+   div(class="fomr-group")
+    label(for="text") Nombre tarea
+    input(type="text",name="nombre",placeholder="nombre",id="nombre",class="form-control")
+   div(class="row top-space")
+    div(class="col-xs-12 col-sm-6")
+      .button_content.end
+       button Crear

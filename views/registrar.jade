@@ -1,0 +1,43 @@
+doctype html
+html(lan='es')
+ head
+  title ECOCARDS
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet', type='text/css', href='estatico/bootstrap/css/bootstrap.min.css')
+  link(rel='stylesheet', type='text/css', href='estatico/css/moduls/controllers.css')
+ body
+  #modal_config.modal.fade(tabindex='-1', role='dialog')
+   .modal-dialog(role='document')
+    .modal-content
+     .modal-header
+      button.close(type='button', data-dismiss='modal', aria-label='Close')
+       span(aria-hidden='true') ×
+     .modal-body
+     .modal-footer
+  form(action='/users/crearusuario', method='post')
+   .window
+    .content
+     #section_1.section
+      label.title Registrate.
+      .element_content
+       if(messages.info)
+        .message.success
+        center
+         span(style='font-size: 2em; color:#32cc32;')= messages.info
+       .input_content
+        input(type="text",name="username",placeholder="nombre completo",id="username",class="form-control")
+       .input_content
+        input(type="number",name="telefono",placeholder="telefono",id="telefono",class="form-control")
+       .input_content
+        input(type="text",name="email",placeholder="Email",id="email",class="form-control")
+       .input_content
+        input(type="password",name="password",placeholder="password",id="password",class="form-control")
+       .input_content
+        input(type="password",name="pas",placeholder="password",id="password_confirmation",class="form-control")
+      .button_content
+       button Registrar
+     .bottom_menu
+      a(href="/") Ya tengo cuenta.
+  script(src='estatico/bootstrap/js/jquery.js')
+  script(src='estatico/bootstrap/js/bootstrap.min.js')

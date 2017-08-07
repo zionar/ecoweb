@@ -1,0 +1,41 @@
+@import "colors.scss";
+
+.modal-header,.modal-body,.modal-footer{
+	border:none;
+	padding: 10px;
+}
+
+.modal-header{
+	margin: 0 auto;
+	padding: 0 15px;
+	padding-top: 10px;
+}
+
+.modal-body{
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	padding: 0 15px;
+	max-width: 600px;
+}
+
+.modal-body,.modal-footer{
+	button{
+		background: $color_button;
+		color: #FFF;
+	}
+
+	button:hover,button:active{
+		background: $color_button_hover;
+		color: #FFF;
+	}
+
+	.step_content{
+		margin:5px 0;
+	}
+
+	.title_modal{
+		text-align: center;
+	}
+}

@@ -1,0 +1,71 @@
+// block contenido
+//  div(class="col-md-8 remove-float center-block text-center big-top-space")
+//   h1 Bienvenido a eco tarjetas (ADMINISTRADOR)
+//   a(href="/inicio/crearproyecto" class="right-space") Crear Proyecto
+//   a(href="/panel_administador/" class="right-space") Panel Administrador
+extends moduls/struct.jade
+
+block libs
+	link(rel="stylesheet" type="text/css" href="../estatico/css/moduls/miniature_card.css")
+
+block content
+	-function miniature_color_priority(priority){
+	-		var color="";
+	-		if(priority == 3)color="background:#008;color:#FFF;";
+	-		else if(priority == 2)color="background:#F00;color:#FFF;";
+	-		else if(priority == 1)color="background:#F70;color:#FFF;";
+	-		else color="background:#FFF;color:#006;";
+	- 		return color};
+
+	div.section#section_1
+		label.title Panel (ADMINISTRADOR)
+		div.element_content
+			if(messages.info)
+				.message.success
+				center
+					span(style='font-size: 2em; color:#32cc32;')= messages.info
+
+			if(messages.testin)
+				.message.success
+				center
+					span(style='font-size: 1.3em; color:#32cc32;')= messages.testin
+
+			label.title_2 funcionalidades del sistemas:
+			div.elements
+			
+					form(action="/tarjetas"  method="get")
+						div(style=miniature_color_priority(0)).card_task
+							div.custom_card
+							div.title_card: span.title_2 Ver mis tarjetas
+							div.button_content
+								button Abrir
+
+					form(action="/inicio/creartarjeta"  method="get")
+						div(style=miniature_color_priority(0)).card_task
+							div.custom_card
+							div.title_card: span.title_2 Crear tarjeta
+							div.button_content
+								button Abrir
+								
+					form(action="/inicio/creartipotarea"  method="get")
+						div(style=miniature_color_priority(0)).card_task
+							div.custom_card
+							div.title_card: span.title_2  Crear Tipo Tarea
+							div.button_content
+								button Abrir
+
+					// form(action="/inicio/creartipousuario"  method="get")
+					// 	div(style=miniature_color_priority(0)).card_task
+					// 		div.custom_card
+					// 		div.title_card: span.title_2  Crear Tipo Usuario
+					// 		div.button_content
+					// 			button Abrir
+
+					form(action="/inicio/crearcriterio"  method="get")
+						div(style=miniature_color_priority(0)).card_task
+							div.custom_card
+							div.title_card: span.title_2  Crear Criterio de evaluacion
+							div.button_content
+								button Abrir
+
+block libs_js

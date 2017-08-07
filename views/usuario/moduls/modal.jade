@@ -1,0 +1,8 @@
+div.modal.fade#modal_config(tabindex="-1",role="dialog")
+	div.modal-dialog(role="document")
+		div.modal-content
+			div.modal-header
+				button.close(type="button",data-dismiss="modal",aria-label="Close")
+					span(aria-hidden="true") &times;
+			div.modal-body: block modal_content
+			div.modal-footer: block modal_button
